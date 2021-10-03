@@ -83,12 +83,12 @@ btnFizzBuzz.addEventListener("click", () => {
     const p = document.createElement("p");
     let result = "";
     for (let i = 1; i <= 100; i++) {
-        if (i % 3 === 0) {
-            result += " Fizz! ";
+        if (i % 5 === 0 && i % 3 === 0) {
+            result += " FizzBuzz! ";
         } else if (i % 5 === 0) {
             result += " Buzz! ";
-        } else if (i % 5 === 0 && i % 3 === 0) {
-            result += " FizzBuzz! "
+        } else if (i % 3 === 0) {
+            result += " Fizz! "
         } else {
             result += ` ${i} `;
         }
@@ -101,16 +101,16 @@ btnFizzBuzzResult.addEventListener("click", () => {
     const p = document.createElement("p");
     const value = input.value;
     let result = "";
-    if (value != "" && value % 3 == 0) {
-        result = "Fizz!";
-    } else if (value != "" && value % 5 == 0) {
-        result = "Buzz!";
-    } else if (value != "" && value % 5 == 0 && value % 3 == 0) {
-        result = "FizzBuzz!"
-    } else if (value != 0 || value != "") {
-        result = ` ${value} `;
-    } else {
+    if (value == "0" || value == "") {
         result = "invalid input";
+    } else if (value % 5 == 0 && value % 3 == 0) {
+        result = "FizzBuzz!";
+    } else if (value % 3 == 0) {
+        result = "Fizz!";
+    } else if (value % 5 == 0) {
+        result = "Buzz!";
+    } else {
+        result = `${value}`;
     }
     p.innerHTML = result;
     divFizzBuzzResult.appendChild(p);
